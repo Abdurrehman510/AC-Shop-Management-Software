@@ -21,106 +21,82 @@ public class MainFrame extends JFrame {
 
     private void createUI() {
         setTitle("AC Shop Management System");
-        setSize(1200, 600);
+        setSize(1200, 580);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // UI Enhancements
-        getContentPane().setBackground(new Color(245, 245, 250));
-        
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(6, 3, 10, 10));
-        panel.setBackground(new Color(245, 245, 250));
-        panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
-        Font labelFont = new Font("Segoe UI", Font.BOLD, 16);
-        Font fieldFont = new Font("Segoe UI", Font.PLAIN, 15);
-        Color fgColor = new Color(50, 50, 60);
-
-        JLabel nameLabel = new JLabel("       Client Name");
-        nameLabel.setFont(labelFont);
-        nameLabel.setForeground(fgColor);
+        JLabel nameLabel = new JLabel("                 Client Name");
+        nameLabel.setFont(new Font("Elephant", Font.PLAIN, 20));
         nameField = new JTextField();
-        nameField.setFont(fieldFont);
         
-        JLabel dopLabel = new JLabel("       Date of Purchase ");
-        dopLabel.setFont(labelFont);
-        dopLabel.setForeground(fgColor);
+        JLabel dopLabel = new JLabel("             Date of Purchase ");
+        dopLabel.setFont(new Font("Elephant", Font.PLAIN, 19));
         dopField = new JTextField();
-        dopField.setFont(fieldFont);
         
-        JLabel addressLabel = new JLabel("       Address");
-        addressLabel.setFont(labelFont);
-        addressLabel.setForeground(fgColor);
+        JLabel addressLabel = new JLabel("                      Address");
+        addressLabel.setFont(new Font("Elephant", Font.PLAIN, 20));
         addressField = new JTextField();
-        addressField.setFont(fieldFont);
         
-        JLabel phoneLabel = new JLabel("       Phone");
-        phoneLabel.setFont(labelFont);
-        phoneLabel.setForeground(fgColor);
+        JLabel phoneLabel = new JLabel("                       Phone");
+        phoneLabel.setFont(new Font("Elephant", Font.PLAIN, 20));
         phoneField = new JTextField();
-        phoneField.setFont(fieldFont);
         
-        JLabel acModelLabel = new JLabel("       AC Model ");
-        acModelLabel.setFont(labelFont);
-        acModelLabel.setForeground(fgColor);
+        JLabel acModelLabel = new JLabel("                    AC Model ");
+        acModelLabel.setFont(new Font("Elephant", Font.PLAIN, 19));
         acModelField = new JTextField();
-        acModelField.setFont(fieldFont);
         
-        JLabel priceLabel = new JLabel("       Price ");
-        priceLabel.setFont(labelFont);
-        priceLabel.setForeground(fgColor);
+        JLabel priceLabel = new JLabel("                        Price ");
+        priceLabel.setFont(new Font("Elephant", Font.PLAIN, 19));
         priceField = new JTextField();
-        priceField.setFont(fieldFont);
         
-        JLabel descriptionLabel = new JLabel("       Description");
-        descriptionLabel.setFont(labelFont);
-        descriptionLabel.setForeground(fgColor);
+        JLabel descriptionLabel = new JLabel("                  Description");
+        descriptionLabel.setFont(new Font("Elephant", Font.PLAIN, 19));
         descriptionField = new JTextField();
-        descriptionField.setFont(fieldFont);
         
-        JLabel searchLabel = new JLabel("       Search[Name/Date]");
-        searchLabel.setFont(labelFont);
-        searchLabel.setForeground(fgColor);
+        JLabel searchLabel = new JLabel("       Search[Name / Date]");
+        searchLabel.setFont(new Font("Elephant", Font.PLAIN, 20));
         searchField = new JTextField();
-        searchField.setFont(fieldFont);
         
-        Font btnFont = new Font("Segoe UI", Font.BOLD, 14);
-        Color btnBg = new Color(70, 130, 180);
-        Color btnFg = Color.WHITE;
+        Font btnFont = new Font("Comic Sans MS", Font.BOLD, 15);
         
-        JButton addButton = createStyledButton("Add Client", btnFont, btnBg, btnFg);
+        JButton addButton = new JButton("Add Client");
+        addButton.setFont(btnFont);
         addButton.addActionListener(e -> addClient());
         
-        JButton removeButton = createStyledButton("Remove Client", btnFont, new Color(220, 53, 69), btnFg);
+        JButton removeButton = new JButton("Remove Client");
+        removeButton.setFont(btnFont);
         removeButton.addActionListener(e -> removeClient());
         
-        JButton updateButton = createStyledButton("Update Client", btnFont, new Color(255, 193, 7), Color.BLACK);
+        JButton updateButton = new JButton("Update Client");
+        updateButton.setFont(btnFont);
         updateButton.addActionListener(e -> updateClient());
         
-        JButton searchButton = createStyledButton("Search", btnFont, btnBg, btnFg);
+        JButton searchButton = new JButton("Search");
+        searchButton.setFont(btnFont);
         searchButton.addActionListener(e -> searchClient());
         
-        JButton displayButton = createStyledButton("Display All Clients", btnFont, new Color(40, 167, 69), btnFg);
+        JButton displayButton = new JButton("Display All Clients");
+        displayButton.setFont(btnFont);
         displayButton.addActionListener(e -> displayAllClients());
         
-        JButton serviceButton = createStyledButton("Service", btnFont, new Color(23, 162, 184), btnFg);
+        JButton serviceButton = new JButton("Service");
+        serviceButton.setFont(btnFont);
         serviceButton.addActionListener(e -> performService());
         
-        JButton packageButton = createStyledButton("Update Package", btnFont, new Color(111, 66, 193), btnFg);
+        JButton packageButton = new JButton("Update Package");
+        packageButton.setFont(btnFont);
         packageButton.addActionListener(e -> updatePackage());
         
-        JButton exitButton = createStyledButton("Exit", btnFont, new Color(108, 117, 125), btnFg);
+        JButton exitButton = new JButton("Exit");
+        exitButton.setFont(btnFont);
         exitButton.addActionListener(e -> exitApp());
         
         displayArea = new JTextArea();
         displayArea.setEditable(false);
-        displayArea.setFont(new Font("Consolas", Font.PLAIN, 15));
-        displayArea.setBackground(new Color(250, 250, 255));
-        displayArea.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(200, 200, 210)), 
-            BorderFactory.createEmptyBorder(10, 10, 10, 10)
-        ));
+        displayArea.setFont(new Font("Consolas", Font.BOLD, 17));
 
         panel.add(nameLabel);
         panel.add(nameField);
@@ -150,16 +126,6 @@ public class MainFrame extends JFrame {
 
         add(panel, BorderLayout.NORTH);
         add(new JScrollPane(displayArea), BorderLayout.CENTER);
-    }
-    
-    private JButton createStyledButton(String text, Font font, Color bg, Color fg) {
-        JButton btn = new JButton(text);
-        btn.setFont(font);
-        btn.setBackground(bg);
-        btn.setForeground(fg);
-        btn.setFocusPainted(false);
-        btn.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
-        return btn;
     }
     
     private void clearFields() {
